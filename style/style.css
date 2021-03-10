@@ -29,46 +29,59 @@ button {
   font-family: Bangers, sans-serif;
   letter-spacing: 2px;
 }
-/* ... Your turn! ... */
-/* HEADER */
 
-
-nav ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+nav {
   background-color: var(--green);
-  margin: 0;
-  padding: 20px;
-  text-transform: uppercase;
+  padding: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
   opacity: 0.8;
 }
 
-ul > li:hover {
-  transform: rotate(-10deg)
+nav ul {
+  display: flex;
+  justify-content: space-around;
 }
 
-a {
+nav li {
+  list-style: none;
+}
+
+li a {
   text-decoration: none;
   color: white;
 }
 
-ul {
-  list-style: none;
+nav li:nth-child(odd):hover {
+  transform: rotate(10deg);
 }
+
+nav li:nth-child(even):hover {
+  transform: rotate(-10deg);
+}
+
 header {
   min-height: 100vh;
-  background-image: url(../img/blue-splash.png);
-  background-size: cover;
+  background-image: url("../img/blue-splash.png");
   background-position: center;
-  color: var(--orange);
+  background-size: contain;
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  text-align: center;
-  text-shadow: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-shadow: white 1px 1px;
 }
 
+h1, header > p {
+  color: var(--orange);
+  text-shadow: 1px 1px white;
+}
 
-/* section */
 h1 {
   font-size: 10vh;
 }
@@ -83,8 +96,6 @@ h2 {
   gap: 1rem;
   justify-content: center; 
 }
-
-/* SECTION OCSTACLES */
 
 #obstacles {
   background-color: var(--orange);
@@ -104,8 +115,6 @@ h2 {
   color: var(--orange);
 }
 
-
-/*  SECTION PRIZES */
 
 #prizes {
   background-color: var(--green);
@@ -178,5 +187,9 @@ footer {
 
 
 
-@media (min-width: 640px) {
+@media screen and (max-width: 640px) {
+  .obstacles, .prizes {
+    display: flex;
+    flex-direction: column;
+  }
 }
